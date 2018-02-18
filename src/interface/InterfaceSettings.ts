@@ -195,7 +195,7 @@ export class InterfaceSettingsFactory {
                             title: control,
                             type: OptionType.MultiSelect,
                         }))
-                    )(["space", "pause"]),
+                    )([]),
                     title: "Controls",
                 },
             ],
@@ -288,25 +288,7 @@ export class InterfaceSettingsFactory {
      * Adds InputWritr pipes as global event listeners.
      */
     private initializePipes(): void {
-        this.gameWindow.addEventListener(
-            "keydown",
-            this.game.inputWriter.makePipe("onkeydown", "keyCode"));
-
-        this.gameWindow.addEventListener(
-            "keyup",
-            this.game.inputWriter.makePipe("onkeyup", "keyCode"));
-
-        this.gameWindow.addEventListener(
-            "mousedown",
-            this.game.inputWriter.makePipe("onmousedown", "which"));
-
-        this.gameWindow.addEventListener(
-            "contextmenu",
-            this.game.inputWriter.makePipe("oncontextmenu", "", true));
-
-        this.gameWindow.document.addEventListener(
-            "visibilitychange",
-            this.handleVisibilityChange);
+        // ...
     }
 
     /**

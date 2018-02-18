@@ -122,7 +122,6 @@
         "name": "UserWrappr-Delayed"
       }
     ],
-    "maps": true,
     "name": "StarCorn",
     "web": {
       "drivingObject": "StarCorn",

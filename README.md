@@ -1,7 +1,7 @@
 <!-- {{Top}} -->
 # StarCorn
-[![Greenkeeper badge](https://badges.greenkeeper.io/JoshuakGoldberg/StarCorn.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/JoshuakGoldberg/StarCorn.svg?branch=master)](https://travis-ci.org/JoshuakGoldberg/StarCorn)
+[![Greenkeeper badge](https://badges.greenkeeper.io/FullScreenShenanigans/StarCorn.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/FullScreenShenanigans/StarCorn.svg?branch=master)](https://travis-ci.org/FullScreenShenanigans/StarCorn)
 [![NPM version](https://badge.fury.io/js/starcorn.svg)](http://badge.fury.io/js/starcorn)
 
 Fly through the galaxy! Eat your vegetables!
