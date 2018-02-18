@@ -18,6 +18,7 @@ export const createPixelDrawer = (game: StarCorn) =>
             game.groupHolder.getGroup(game.things.names.scenery),
             game.groupHolder.getGroup(game.things.names.planet),
             game.groupHolder.getGroup(game.things.names.vegetable),
+            game.groupHolder.getGroup(game.things.names.player),
         ],
         ...game.settings.components.drawing,
     });

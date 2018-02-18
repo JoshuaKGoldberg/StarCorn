@@ -17,6 +17,7 @@ export const createGroupHolder = (game: StarCorn) =>
             game.things.names.scenery,
             game.things.names.planet,
             game.things.names.vegetable,
+            game.things.names.player,
         ],
         ...game.settings.components.groups,
     });

@@ -15,6 +15,7 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                     [game.things.names.star]: {},
                 },
                 [game.things.names.planet]: {},
+                [game.things.names.player]: {},
                 [game.things.names.vegetable]: {},
             },
         },
@@ -60,13 +61,19 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
             [game.things.names.star]: {
                 height: 3,
                 width: 3,
-                onMaintain: game.stars.maintainStar.bind(game.stars),
+                onMaintain: game.stars.maintainStar,
             },
             // Planets
             [game.things.names.planet]: {
                 height: 256,
                 width: 256,
                 groupType: game.things.names.planet,
+            },
+            // Player
+            [game.things.names.player]: {
+                height: 64,
+                width: 64,
+                groupType: game.things.names.player,
             },
             // Vegetables
             [game.things.names.vegetable]: {

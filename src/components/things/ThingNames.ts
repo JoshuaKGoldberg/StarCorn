@@ -8,6 +8,7 @@ import { StarCorn } from "../../StarCorn";
  */
 export class ThingNames<TGameStartr extends StarCorn> extends GeneralComponent<TGameStartr> {
     public readonly planet = "Planet";
+    public readonly player = "Player";
     public readonly quadrant = "Quadrant";
     public readonly scenery = "Scenery";
     public readonly star = "Star";

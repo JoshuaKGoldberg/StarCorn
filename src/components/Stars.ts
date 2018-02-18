@@ -44,7 +44,7 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
      *
      * @param star   Star to maintain.
      */
-    public maintainStar(star: IScenery): void {
+    public maintainStar = (star: IScenery): void => {
         if (star.bottom < 0) {
             this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.bottom);
         } else if (star.top > this.gameStarter.mapScreener.bottom) {

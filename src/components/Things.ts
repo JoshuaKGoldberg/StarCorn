@@ -13,7 +13,11 @@ export interface IPlanet extends IThing {
 }
 
 export interface IVegetable extends IThing {
-    points: number;
+    onMaintain(thing: IVegetable): void;
+}
+
+export interface IPlayer extends IThing {
+    speed: number;
 }
 
 /**

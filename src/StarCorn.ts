@@ -10,7 +10,9 @@ import { PixelRendr } from "pixelrendr";
 import { QuadsKeepr } from "quadskeepr";
 import { Maintenance } from "./components/Maintenance";
 import { Stars } from "./components/Stars";
-import { Things } from "./components/Things";
+import { Starting } from "./components/Starting";
+import { IPlanet, Things } from "./components/Things";
+import { Vegetables } from "./components/Vegetables";
 import { createGamesRunner } from "./creators/createGamesRunner";
 import { createGroupHolder, IGroups } from "./creators/createGroupHolder";
 import { createObjectMaker } from "./creators/createObjectMaker";
@@ -64,7 +66,7 @@ export class StarCorn extends GameStartr {
     public readonly quadsKeeper: QuadsKeepr<IThing>;
 
     /**
-     * Scatters sparkling stars through the screen.
+     * Maintains Things during GamesRunnr ticks.
      */
     @component(Maintenance)
     public readonly maintenance: Maintenance<this>;
@@ -76,10 +78,22 @@ export class StarCorn extends GameStartr {
     public readonly stars: Stars<this>;
 
     /**
+     * Starts a player flying through the sky.
+     */
+    @component(Starting)
+    public readonly starting: Starting<this>;
+
+    /**
      * Names and upkeep functions for in-game Things.
      */
     @component(Things)
     public readonly things: Things<this>;
+
+    /**
+     * Places and maintains floating vegetables.
+     */
+    @component(Vegetables)
+    public readonly vegetables: Vegetables<this>;
 
     /**
      * Initializes a new instance of the StarCorn class.
@@ -93,10 +107,12 @@ export class StarCorn extends GameStartr {
 
         this.quadsKeeper.resetQuadrants();
         this.pixelDrawer.setBackground("black");
+        this.mapScreener.clearScreen();
 
         // Todo: randomly generate these
-        this.things.add(this.things.names.planet, 350, 490);
-        this.things.add(this.things.names.vegetable, 350, 280);
+        const planet = this.things.add(this.things.names.planet, 350, 70);
+        this.vegetables.addOppositePlanet(planet as IPlanet);
+        this.starting.start();
 
         this.gamesRunner.play();
     }
