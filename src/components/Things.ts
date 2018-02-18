@@ -1,8 +1,12 @@
 import { component } from "babyioc";
-import { GeneralComponent, Things as GameStartrThings } from "gamestartr";
+import { GeneralComponent, IThing, Things as GameStartrThings } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
 import { ThingNames } from "./things/ThingNames";
+
+export interface IScenery extends IThing {
+    onMaintain(thing: IScenery): void;
+}
 
 /**
  * Names and upkeep functions for in-game Things.

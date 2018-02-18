@@ -6,6 +6,8 @@ import { ObjectMakr } from "objectmakr";
 import { PixelDrawr } from "pixeldrawr";
 
 import { GamesRunnr } from "gamesrunnr";
+import { PixelRendr } from "pixelrendr";
+import { QuadsKeepr } from "quadskeepr";
 import { Maintenance } from "./components/Maintenance";
 import { Stars } from "./components/Stars";
 import { Things } from "./components/Things";
@@ -13,9 +15,7 @@ import { createGamesRunner } from "./creators/createGamesRunner";
 import { createGroupHolder, IGroups } from "./creators/createGroupHolder";
 import { createObjectMaker } from "./creators/createObjectMaker";
 import { createPixelDrawer } from "./creators/createPixelDrawer";
-import { PixelRendr } from "pixelrendr";
 import { createPixelRender } from "./creators/createPixelRender";
-import { QuadsKeepr } from "quadskeepr";
 import { createQuadsKeeper } from "./creators/createQuadsKeeper";
 
 /**
@@ -92,6 +92,7 @@ export class StarCorn extends GameStartr {
         this.stars.scatterStars();
 
         this.quadsKeeper.resetQuadrants();
+        this.pixelDrawer.setBackground("black");
         this.gamesRunner.play();
     }
 }

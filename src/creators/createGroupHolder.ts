@@ -1,10 +1,11 @@
 import { IThing } from "gamestartr";
 import { GroupHoldr } from "groupholdr";
 
+import { IScenery } from "../components/Things";
 import { StarCorn } from "../StarCorn";
 
 export interface IGroups {
-    Scenery: IThing;
+    Scenery: IScenery;
     [i: string]: IThing;
 }
 

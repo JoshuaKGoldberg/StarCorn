@@ -1,23 +1,20 @@
-import { GeneralComponent, IThing } from "gamestartr";
+import { GeneralComponent } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
+import { IScenery } from "./Things";
 
 /**
  * Maintains Things during GamesRunnr ticks.
  */
 export class Maintenance<TGameStartr extends StarCorn> extends GeneralComponent<TGameStartr> {
     /**
-     * Generic maintenance Function for a group of Things. For each Thing, if
-     * it isn't alive, it's removed from the group.
+     * Regular upkeep maintenance for Scenery Things.
      *
-     * @param things   Group of Things to maintain.
+     * @param things   Group of Scenery to maintain.
      */
-    public maintainGeneric(things: IThing[]): void {
-        for (let i = 0; i < things.length; i += 1) {
-            if (!things[i].alive) {
-                this.gameStarter.utilities.arrayDeleteThing(things[i], things, i);
-                i -= 1;
-            }
+    public maintainScenery(things: IScenery[]): void {
+        for (const thing of things) {
+            thing.onMaintain(thing);
         }
     }
 }

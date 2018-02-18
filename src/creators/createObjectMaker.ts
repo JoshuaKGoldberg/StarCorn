@@ -61,6 +61,7 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
             [game.things.names.star]: {
                 height: 3,
                 width: 3,
+                onMaintain: game.stars.maintainStar.bind(game.stars),
             },
         },
     });
