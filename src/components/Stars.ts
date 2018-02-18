@@ -36,6 +36,11 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
         }
     }
 
+    /**
+     * Regular Star maintenance for sparkling and looping its position.
+     *
+     * @param star   Star to maintain.
+     */
     public maintainStar(star: IScenery): void {
         if (star.bottom < 0) {
             this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.bottom);
