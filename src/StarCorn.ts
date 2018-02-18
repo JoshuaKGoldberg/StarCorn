@@ -93,6 +93,11 @@ export class StarCorn extends GameStartr {
 
         this.quadsKeeper.resetQuadrants();
         this.pixelDrawer.setBackground("black");
+
+        // Todo: randomly generate these
+        this.things.add(this.things.names.planet, 350, 490);
+        this.things.add(this.things.names.vegetable, 350, 280);
+
         this.gamesRunner.play();
     }
 }

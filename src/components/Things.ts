@@ -8,6 +8,14 @@ export interface IScenery extends IThing {
     onMaintain(thing: IScenery): void;
 }
 
+export interface IPlanet extends IThing {
+    gravity: number;
+}
+
+export interface IVegetable extends IThing {
+    points: number;
+}
+
 /**
  * Names and upkeep functions for in-game Things.
  */

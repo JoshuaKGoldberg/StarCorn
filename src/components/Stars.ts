@@ -17,12 +17,15 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
      * Scatters stars randomly across the screen.
      */
     public scatterStars(): void {
-        const distanceBetween = 14;
         const screenWidth: number = this.gameStarter.mapScreener.width;
-        const starColumns: number = (screenWidth / distanceBetween) + 1;
+        const starColumns: number = (screenWidth / Stars.distanceBetweenColumns) + 1;
         const stars: IScenery[] = [];
 
-        for (let left: number = -this.gameStarter.numberMaker.randomInt(starColumns); left < screenWidth; left += distanceBetween) {
+        for (
+            let left: number = -this.gameStarter.numberMaker.randomInt(starColumns);
+            left < screenWidth;
+            left += Stars.distanceBetweenColumns
+        ) {
             const top: number = this.gameStarter.numberMaker.randomIntWithin(-28, screenWidth);
             const star = this.gameStarter.objectMaker.make<IScenery>(
                 this.gameStarter.things.names.star,

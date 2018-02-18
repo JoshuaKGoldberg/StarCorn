@@ -16,6 +16,8 @@ export const createPixelDrawer = (game: StarCorn) =>
         spriteCacheCutoff: 2048,
         thingArrays: [
             game.groupHolder.getGroup(game.things.names.scenery),
+            game.groupHolder.getGroup(game.things.names.planet),
+            game.groupHolder.getGroup(game.things.names.vegetable),
         ],
         ...game.settings.components.drawing,
     });

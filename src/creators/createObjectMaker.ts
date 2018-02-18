@@ -5,7 +5,6 @@ import { StarCorn } from "../StarCorn";
 export const createObjectMaker = (game: StarCorn): ObjectMakr =>
     new ObjectMakr({
         onMake: "onMake",
-        indexMap: ["width", "height"],
         inheritance: {
             Quadrant: {},
             Map: {},
@@ -15,6 +14,8 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 [game.things.names.scenery]: {
                     [game.things.names.star]: {},
                 },
+                [game.things.names.planet]: {},
+                [game.things.names.vegetable]: {},
             },
         },
         properties: {
@@ -32,9 +33,6 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 entry: "Normal",
             },
             [game.things.names.thing]: {
-                // Sizing
-                width: 32,
-                height: 32,
                 // Placement
                 alive: true,
                 placed: false,
@@ -55,6 +53,7 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 // Triggered Functions
                 onMake: game.things.process.bind(game.things),
             },
+            // Scenery
             [game.things.names.scenery]: {
                 groupType: game.things.names.scenery,
             },
@@ -62,6 +61,18 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 height: 3,
                 width: 3,
                 onMaintain: game.stars.maintainStar.bind(game.stars),
+            },
+            // Planets
+            [game.things.names.planet]: {
+                height: 256,
+                width: 256,
+                groupType: game.things.names.planet,
+            },
+            // Vegetables
+            [game.things.names.vegetable]: {
+                height: 64,
+                width: 64,
+                groupType: game.things.names.vegetable,
             },
         },
     });
