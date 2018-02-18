@@ -38,14 +38,14 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
 
     public maintainStar(star: IScenery): void {
         if (star.bottom < 0) {
-            this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.height);
-        } else if (star.top > this.gameStarter.mapScreener.height) {
+            this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.bottom);
+        } else if (star.top > this.gameStarter.mapScreener.bottom) {
             this.gameStarter.physics.setBottom(star, 0);
         }
 
         if (star.right < 0) {
-            this.gameStarter.physics.setLeft(star, this.gameStarter.mapScreener.width);
-        } else if (star.left > this.gameStarter.mapScreener.width) {
+            this.gameStarter.physics.setLeft(star, this.gameStarter.mapScreener.right);
+        } else if (star.left > this.gameStarter.mapScreener.right) {
             this.gameStarter.physics.setRight(star, 0);
         }
 
