@@ -12,9 +12,13 @@ export class Planets<TGameStartr extends StarCorn> extends GeneralComponent<TGam
      *
      */
     public addPlanetAtEdge(): IPlanet {
-        const midY = this.gameStarter.numberMaker.randomWithin(
-            0,
-            this.gameStarter.mapScreener.bottom);
+        const midY = this.gameStarter.numberMaker.randomBoolean()
+            ? this.gameStarter.numberMaker.randomWithin(
+                0,
+                this.gameStarter.mapScreener.height * 0.33)
+            : this.gameStarter.numberMaker.randomWithin(
+                this.gameStarter.mapScreener.height * 0.67,
+                this.gameStarter.mapScreener.height);
 
         const planet = this.gameStarter.things.add(this.gameStarter.things.names.planet) as IPlanet;
 

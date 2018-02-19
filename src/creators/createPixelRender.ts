@@ -25,6 +25,6 @@ export const createPixelRender = (game: StarCorn) =>
             },
             [game.things.names.planet]: "p[0,3]x165536,",
             [game.things.names.player]: "p[0,3]x14096,",
-            [game.things.names.vegetable]: "p[0,3]x14096,",
+            [game.things.names.vegetable]: "p[0,3]x12048,",
         },
     });
