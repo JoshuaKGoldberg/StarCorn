@@ -1,11 +1,14 @@
 <!-- {{Top}} -->
 # StarCorn
-[![Greenkeeper badge](https://badges.greenkeeper.io/FullScreenShenanigans/StarCorn.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/FullScreenShenanigans/StarCorn.svg?branch=master)](https://travis-ci.org/FullScreenShenanigans/StarCorn)
+[![Greenkeeper badge](https://badges.greenkeeper.io/JoshuaKGoldberg/StarCorn.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/JoshuaKGoldberg/StarCorn.svg?branch=master)](https://travis-ci.org/JoshuaKGoldberg/StarCorn)
 [![NPM version](https://badge.fury.io/js/starcorn.svg)](http://badge.fury.io/js/starcorn)
 
-Fly through the galaxy! Eat your vegetables!
+🌽✨ Fly through the galaxy! Eat your vegetables! ✨🌽
 <!-- {{/Top}} -->
+
+2018 birthday present for my girlfriend.
+_Shhh!_
 
 ## Usage
 
