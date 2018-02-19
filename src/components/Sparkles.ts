@@ -50,7 +50,7 @@ export class Sparkles<TGameStartr extends StarCorn> extends GeneralComponent<TGa
             this.gameStarter.things.names.sparkle,
             {
                 opacity: this.gameStarter.numberMaker.randomWithin(0.14, 1),
-                scale: this.gameStarter.numberMaker.randomWithin(1.4, 7),
+                scale: this.gameStarter.numberMaker.randomWithin(0.7, 3.5),
             });
 
         this.gameStarter.graphics.addClass(sparkle, className);

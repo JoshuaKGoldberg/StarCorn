@@ -23,9 +23,9 @@ export const createPixelRender = (game: StarCorn) =>
         filters: {},
         library: {
             [game.things.names.sparkle]: {
-                attract: "p[5]0",
-                normal: "p[1]0",
-                repel: "p[6]0",
+                attract: "p[0,5]010111010",
+                normal: "p[0,1]010111010",
+                repel: "p[0,6]010111010",
             },
             [game.things.names.star]: {
                 attract: "p[0,5]010111010",

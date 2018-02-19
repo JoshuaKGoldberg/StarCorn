@@ -55,8 +55,8 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
             },
             // Sparkles
             [game.things.names.sparkle]: {
-                height: 1,
-                width: 1,
+                height: 3,
+                width: 3,
                 groupType: game.things.names.sparkle,
                 movement: game.sparkles.movement,
             },
