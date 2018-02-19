@@ -26,7 +26,7 @@ export interface IGameWindow {
     /**
      * Game instance, once this has created it.
      */
-    StarCorn?: StarCorn;
+    SC?: StarCorn;
 
     /**
      * Removes an event listener from the window.
@@ -120,7 +120,7 @@ export class InterfaceSettingsFactory {
         return {
             defaultSize: this.sizes[this.defaultSize],
             createContents: (size: IAbsoluteSizeSchema, userWrapper: IUserWrappr) => {
-                this.gameWindow.StarCorn = this.game = new StarCorn(size);
+                this.gameWindow.SC = this.game = new StarCorn(size);
                 this.userWrapper = userWrapper;
 
                 if (!this.initializedPipes) {

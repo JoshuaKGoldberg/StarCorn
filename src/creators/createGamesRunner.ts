@@ -4,7 +4,7 @@ import { IThing } from "gamestartr";
 import { StarCorn } from "../StarCorn";
 
 /**
- * @param fsp   A generating StarCorn instance.
+ * @param game   A generating StarCorn instance.
  * @returns Runner settings for the StarCorn instance.
  */
 export const createGamesRunner = (game: StarCorn): GamesRunnr =>

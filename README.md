@@ -10,7 +10,7 @@ Fly through the galaxy! Eat your vegetables!
 ## Usage
 
 The built `src/index.html` uses [UserWrappr](https://github.com/JoshuakGoldberg/UserWrappr) to fill the available window size with a game screen, option menus, and piped input events.
-It stores its generated instance as `window.FSP`.
+It stores its generated instance as `window.SC`.
 
 To do this in your own page, use the exported `createStarCornInterface` function.
 
@@ -20,7 +20,7 @@ import { createStarCornInterface } from "StarCorn";
 createStarCornInterface(document.getElementById("game"))
     .then(() => {
         console.log("Ready to play!");
-        console.log(FSP);
+        console.log(SC);
     });
 ```
 
@@ -30,16 +30,16 @@ You can also directly create a new `StarCorn` instance with a manual size.
 import { StarCorn } from "starcorn";
 
 // Creates a new game with a 320x480 screen size
-const fsp = new StarCorn({
+const game = new StarCorn({
     height: 320,
     width: 480,
 });
 
 // Games contain a .canvas member for the screen
-document.body.appendChild(fsp.canvas);
+document.body.appendChild(game.canvas);
 
 // Shows the initial in-game menu with start and load options
-fsp.gameplay.gameStart();
+game.gameplay.gameStart();
 ```
 
 > By default, the game doesn't set up input events.
