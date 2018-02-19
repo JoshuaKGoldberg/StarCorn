@@ -57,4 +57,18 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
         star.opacity += this.gameStarter.numberMaker.randomWithin(-0.035, 0.035);
         star.opacity = Math.max(Math.min(star.opacity, 1), 0.14);
     }
+
+    public flickerColorOn(color: string): void {
+        for (const star of (this.gameStarter.groupHolder.getGroup(this.gameStarter.things.names.scenery))) {
+            this.gameStarter.graphics.addClass(star, color);
+        }
+
+        this.gameStarter.timeHandler.addEvent(this.flickerColorOff, 35, color);
+    }
+
+    private readonly flickerColorOff = (color: string): void => {
+        for (const star of (this.gameStarter.groupHolder.getGroup(this.gameStarter.things.names.scenery))) {
+            this.gameStarter.graphics.removeClass(star, color);
+        }
+    }
 }

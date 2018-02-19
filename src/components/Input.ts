@@ -13,6 +13,12 @@ export class Input<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
 
         for (const thing of this.gameStarter.groupHolder.getGroup(this.gameStarter.things.names.player)) {
             thing.invertGravity = !thing.invertGravity;
+
+            const newColor = thing.invertGravity
+                ? "attract"
+                : "repel";
+
+            this.gameStarter.stars.flickerColorOn(newColor);
         }
     }
 }
