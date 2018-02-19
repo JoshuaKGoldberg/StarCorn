@@ -11,12 +11,12 @@ export class Player<TGameStartr extends StarCorn> extends GeneralComponent<TGame
     /**
      *
      */
-    public static readonly acceleration = 0.049;
+    public static readonly acceleration = 0.035;
 
     /**
      *
      */
-    public static readonly maximumSpeed = 11.7;
+    public static readonly maximumSpeed = 7;
 
     /**
      *
@@ -57,12 +57,7 @@ export class Player<TGameStartr extends StarCorn> extends GeneralComponent<TGame
         }
 
         if (thing.invertGravity) {
-            if (shiftX === 0) {
-                this.gameStarter.physics.shiftHoriz(thing, -3);
-            } else {
-                shiftX *= -1;
-            }
-
+            shiftX *= -1;
             shiftY *= -1;
         }
 

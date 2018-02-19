@@ -288,7 +288,9 @@ export class InterfaceSettingsFactory {
      * Adds InputWritr pipes as global event listeners.
      */
     private initializePipes(): void {
-        // ...
+        this.gameWindow.addEventListener(
+            "keydown",
+            this.game.inputWriter.makePipe("onkeydown", "keyCode"));
     }
 
     /**

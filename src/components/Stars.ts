@@ -11,14 +11,15 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
     /**
      * Screen distance between columns of stars.
      */
-    public static readonly distanceBetweenColumns = 21;
+    public static readonly distanceBetweenColumns = 7;
 
     /**
      * Scatters stars randomly across the screen.
      */
     public scatterStars(): void {
+        const screenHeight: number = this.gameStarter.mapScreener.height;
         const screenWidth: number = this.gameStarter.mapScreener.width;
-        const starColumns: number = (screenWidth / Stars.distanceBetweenColumns) + 1;
+        const starColumns: number = screenWidth / Stars.distanceBetweenColumns;
         const stars: IScenery[] = [];
 
         for (
@@ -26,7 +27,7 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
             left < screenWidth;
             left += Stars.distanceBetweenColumns
         ) {
-            const top: number = this.gameStarter.numberMaker.randomIntWithin(-28, screenWidth);
+            const top: number = this.gameStarter.numberMaker.randomIntWithin(-28, screenHeight);
             const star = this.gameStarter.objectMaker.make<IScenery>(
                 this.gameStarter.things.names.star,
                 {
@@ -47,16 +48,10 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
      * @param star   Star to maintain.
      */
     public readonly movement = (star: IScenery): void => {
-        if (star.bottom < 0) {
-            this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.bottom);
-        } else if (star.top > this.gameStarter.mapScreener.bottom) {
-            this.gameStarter.physics.setBottom(star, 0);
-        }
-
         if (star.right < 0) {
-            this.gameStarter.physics.setLeft(star, this.gameStarter.mapScreener.width);
-        } else if (star.left > this.gameStarter.mapScreener.width) {
-            this.gameStarter.physics.setRight(star, 0);
+            this.gameStarter.physics.setLeft(
+                star,
+                this.gameStarter.mapScreener.width - star.right);
         }
 
         star.opacity += this.gameStarter.numberMaker.randomWithin(-0.035, 0.035);

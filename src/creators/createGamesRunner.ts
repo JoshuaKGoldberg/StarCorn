@@ -9,7 +9,7 @@ import { StarCorn } from "../StarCorn";
  */
 export const createGamesRunner = (game: StarCorn): GamesRunnr =>
     new GamesRunnr({
-        interval: 1000 / 60,
+        interval: 1000 / 120,
         games: [
             (): void => {
                 game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.player));

@@ -6,10 +6,11 @@ import { ObjectMakr } from "objectmakr";
 import { PixelDrawr } from "pixeldrawr";
 
 import { GamesRunnr } from "gamesrunnr";
+import { InputWritr } from "inputwritr";
 import { PixelRendr } from "pixelrendr";
 import { QuadsKeepr } from "quadskeepr";
+import { Input } from "./components/Input";
 import { Maintenance } from "./components/Maintenance";
-import { Measurements } from "./components/Measurements";
 import { Planets } from "./components/Planets";
 import { Player } from "./components/Player";
 import { Stars } from "./components/Stars";
@@ -18,6 +19,7 @@ import { IPlanet, Things } from "./components/Things";
 import { Vegetables } from "./components/Vegetables";
 import { createGamesRunner } from "./creators/createGamesRunner";
 import { createGroupHolder, IGroups } from "./creators/createGroupHolder";
+import { createInputWriter } from "./creators/createInputWriter";
 import { createObjectMaker } from "./creators/createObjectMaker";
 import { createPixelDrawer } from "./creators/createPixelDrawer";
 import { createPixelRender } from "./creators/createPixelRender";
@@ -45,6 +47,12 @@ export class StarCorn extends GameStartr {
     public readonly groupHolder: GroupHoldr<IGroups>;
 
     /**
+     * Bridges input events to known actions.
+     */
+    @component(createInputWriter)
+    public readonly inputWriter: InputWritr;
+
+    /**
      * An abstract factory for dynamic attribute-based classes.
      */
     @component(createObjectMaker)
@@ -67,6 +75,12 @@ export class StarCorn extends GameStartr {
      */
     @component(createQuadsKeeper)
     public readonly quadsKeeper: QuadsKeepr<IThing>;
+
+    /**
+     * Receives input events.
+     */
+    @component(Input)
+    public readonly input: Input<this>;
 
     /**
      * Maintains Things during GamesRunnr ticks.
