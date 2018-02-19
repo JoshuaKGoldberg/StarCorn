@@ -50,7 +50,7 @@ game.gameplay.gameStart();
 
 ### Documentation
 
-StarCorn is built on top of [GameStartr](https://github.com/FullScreenShenanigans/GameStartr), a modular TypeScript game engine split across separate projects available on npm and hosted on GitHub in the [JoshuakGoldberg](https://github.com/FullScreenShenanigans) organization.
+StarCorn is built on top of [GameStartr](https://github.com/FullScreenShenanigans/GameStartr), a modular TypeScript game engine split across separate projects available on npm and hosted on GitHub in the [FullScreenShenanigans](https://github.com/FullScreenShenanigans) organization.
 It consists of a couple dozen core modules under this organization.
 
 <!-- {{Development}} -->
