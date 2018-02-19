@@ -12,25 +12,24 @@ export class Planets<TGameStartr extends StarCorn> extends GeneralComponent<TGam
      *
      */
     public addPlanetAtEdge(): IPlanet {
+        const planet = this.gameStarter.things.add(this.gameStarter.things.names.planet) as IPlanet;
         const midY = this.gameStarter.numberMaker.randomBoolean()
             ? this.gameStarter.numberMaker.randomWithin(
-                0,
-                this.gameStarter.mapScreener.height * 0.33)
+                -planet.height * 0.33,
+                0)
             : this.gameStarter.numberMaker.randomWithin(
-                this.gameStarter.mapScreener.height * 0.67,
-                this.gameStarter.mapScreener.height);
+                this.gameStarter.mapScreener.height,
+                this.gameStarter.mapScreener.height + planet.height * 0.33);
 
-        const planet = this.gameStarter.things.add(this.gameStarter.things.names.planet) as IPlanet;
-
-        this.gameStarter.physics.setLeft(planet, this.gameStarter.mapScreener.width);
+        this.gameStarter.physics.setLeft(planet, planet.width + this.gameStarter.mapScreener.width);
         this.gameStarter.physics.setMidY(planet, midY);
 
         this.gameStarter.vegetables.addOppositePlanet(planet as IPlanet);
         return planet;
     }
 
-    public readonly maintainPlanet = (thing: IPlanet): void => {
-        if (thing.right > 0) {
+    public readonly movement = (thing: IPlanet): void => {
+        if (thing.right > -thing.width) {
             return;
         }
 

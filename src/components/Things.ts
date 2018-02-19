@@ -5,7 +5,10 @@ import { StarCorn } from "../StarCorn";
 import { ThingNames } from "./things/ThingNames";
 
 export interface IThing extends IGameStartrThing {
-    onMaintain(thing: IThing): void;
+    /**
+     * A Function to move during an upkeep event.
+     */
+    movement(thing: IThing): void;
 }
 
 export interface IPlanet extends IThing {
@@ -15,6 +18,7 @@ export interface IPlanet extends IThing {
 export type IScenery = IThing;
 
 export interface IPlayer extends IThing {
+    invertGravity:: boolean;
     speed: number;
 }
 

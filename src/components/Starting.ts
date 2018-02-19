@@ -20,6 +20,7 @@ export class Starting<TGameStartr extends StarCorn> extends GeneralComponent<TGa
                 speed: 7,
             });
 
+        this.gameStarter.stars.scatterStars();
         this.gameStarter.things.add(player);
         this.gameStarter.physics.setLeft(player, 0);
         this.gameStarter.physics.setMidY(player, this.gameStarter.mapScreener.height / 2);

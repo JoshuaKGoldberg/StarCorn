@@ -9,6 +9,7 @@ import { GamesRunnr } from "gamesrunnr";
 import { PixelRendr } from "pixelrendr";
 import { QuadsKeepr } from "quadskeepr";
 import { Maintenance } from "./components/Maintenance";
+import { Measurements } from "./components/Measurements";
 import { Planets } from "./components/Planets";
 import { Player } from "./components/Player";
 import { Stars } from "./components/Stars";
@@ -116,8 +117,6 @@ export class StarCorn extends GameStartr {
      */
     public constructor(settings: IGameStartrConstructorSettings) {
         super(settings);
-
-        this.stars.scatterStars();
 
         this.quadsKeeper.resetQuadrants();
         this.pixelDrawer.setBackground("black");

@@ -29,7 +29,7 @@ export class Vegetables<TGameStartr extends StarCorn> extends GeneralComponent<T
         this.gameStarter.physics.setMid(vegetable, midX, midY);
     }
 
-    public readonly maintainVegetable = (thing: IVegetable): void => {
+    public readonly movement = (thing: IVegetable): void => {
         if (thing.right > 0) {
             return;
         }

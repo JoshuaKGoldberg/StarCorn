@@ -20,7 +20,7 @@ export class Maintenance<TGameStartr extends StarCorn> extends GeneralComponent<
                 continue;
             }
 
-            things[i].onMaintain(things[i]);
+            things[i].movement(things[i]);
         }
     }
 }
