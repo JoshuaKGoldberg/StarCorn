@@ -5,23 +5,32 @@ import { StarCorn } from "../StarCorn";
 import { IPlanet, IScenery } from "./Things";
 
 /**
- * Scatters sparkling stars through the screen.
+ * Places planets at random positions.
  */
-export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameStartr> {
-
+export class Planets<TGameStartr extends StarCorn> extends GeneralComponent<TGameStartr> {
     /**
      *
      */
-    public placePlanet(x: number, y: number): void {
+    public addPlanetAtEdge(): IPlanet {
+        const midY = this.gameStarter.numberMaker.randomWithin(
+            0,
+            this.gameStarter.mapScreener.bottom);
 
+        const planet = this.gameStarter.things.add(this.gameStarter.things.names.planet) as IPlanet;
+
+        this.gameStarter.physics.setLeft(planet, this.gameStarter.mapScreener.width);
+        this.gameStarter.physics.setMidY(planet, midY);
+
+        this.gameStarter.vegetables.addOppositePlanet(planet as IPlanet);
+        return planet;
     }
 
-    /**
-     * Regular Star maintenance for sparkling and looping its position.
-     *
-     * @param star   Star to maintain.
-     */
-    public maintainPlanet(planet: IPlanet): void {
+    public readonly maintainPlanet = (thing: IPlanet): void => {
+        if (thing.right > 0) {
+            return;
+        }
 
+        this.gameStarter.physics.killNormal(thing);
+        this.addPlanetAtEdge();
     }
 }

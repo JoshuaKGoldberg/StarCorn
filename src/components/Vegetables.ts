@@ -1,8 +1,8 @@
 import { component } from "babyioc";
-import { GeneralComponent, IThing } from "gamestartr";
+import { GeneralComponent } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
-import { IPlanet, IScenery, IVegetable } from "./Things";
+import { IPlanet, IThing, IVegetable } from "./Things";
 
 /**
  * Places and maintains floating vegetables.
@@ -14,7 +14,10 @@ export class Vegetables<TGameStartr extends StarCorn> extends GeneralComponent<T
     public addOppositePlanet(planet: IPlanet): void {
         const vegetable = this.gameStarter.things.add(this.gameStarter.things.names.vegetable);
 
-        const midX = this.gameStarter.numberMaker.randomWithin(planet.left, planet.right);
+        const midX = this.gameStarter.numberMaker.randomWithin(
+            planet.left - vegetable.width,
+            planet.right + vegetable.width);
+
         const midY = this.gameStarter.physics.getMidY(planet) > this.gameStarter.mapScreener.middleY
             ? this.gameStarter.numberMaker.randomWithin(
                 vegetable.height / 2,
@@ -23,8 +26,14 @@ export class Vegetables<TGameStartr extends StarCorn> extends GeneralComponent<T
                 planet.bottom + vegetable.height / 2,
                 this.gameStarter.mapScreener.height - vegetable.height / 2);
 
-        console.log({ midX, midY });
-
         this.gameStarter.physics.setMid(vegetable, midX, midY);
+    }
+
+    public readonly maintainVegetable = (thing: IVegetable): void => {
+        if (thing.right > 0) {
+            return;
+        }
+
+        this.gameStarter.physics.killNormal(thing);
     }
 }

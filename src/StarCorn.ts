@@ -9,6 +9,8 @@ import { GamesRunnr } from "gamesrunnr";
 import { PixelRendr } from "pixelrendr";
 import { QuadsKeepr } from "quadskeepr";
 import { Maintenance } from "./components/Maintenance";
+import { Planets } from "./components/Planets";
+import { Player } from "./components/Player";
 import { Stars } from "./components/Stars";
 import { Starting } from "./components/Starting";
 import { IPlanet, Things } from "./components/Things";
@@ -74,6 +76,18 @@ export class StarCorn extends GameStartr {
     /**
      * Scatters sparkling stars through the screen.
      */
+    @component(Planets)
+    public readonly planets: Planets<this>;
+
+    /**
+     * Maintains the player(s).
+     */
+    @component(Player)
+    public readonly player: Player<this>;
+
+    /**
+     * Scatters sparkling stars through the screen.
+     */
     @component(Stars)
     public readonly stars: Stars<this>;
 
@@ -109,9 +123,6 @@ export class StarCorn extends GameStartr {
         this.pixelDrawer.setBackground("black");
         this.mapScreener.clearScreen();
 
-        // Todo: randomly generate these
-        const planet = this.things.add(this.things.names.planet, 350, 70);
-        this.vegetables.addOppositePlanet(planet as IPlanet);
         this.starting.start();
 
         this.gamesRunner.play();

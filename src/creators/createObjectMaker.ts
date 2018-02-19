@@ -68,18 +68,21 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 height: 256,
                 width: 256,
                 groupType: game.things.names.planet,
+                onMaintain: game.planets.maintainPlanet,
             },
             // Player
             [game.things.names.player]: {
                 height: 64,
                 width: 64,
                 groupType: game.things.names.player,
+                onMaintain: game.player.maintainPlayer,
             },
             // Vegetables
             [game.things.names.vegetable]: {
                 height: 64,
                 width: 64,
                 groupType: game.things.names.vegetable,
+                onMaintain: game.vegetables.maintainVegetable,
             },
         },
     });

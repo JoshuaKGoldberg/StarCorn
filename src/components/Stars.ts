@@ -1,8 +1,8 @@
 import { component } from "babyioc";
-import { GeneralComponent, IThing } from "gamestartr";
+import { GeneralComponent } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
-import { IScenery } from "./Things";
+import { IScenery, IThing } from "./Things";
 
 /**
  * Scatters sparkling stars through the screen.
@@ -31,6 +31,8 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
                 this.gameStarter.things.names.star,
                 {
                     opacity: this.gameStarter.numberMaker.randomWithin(0.49, 1),
+                    parallaxHoriz: this.gameStarter.numberMaker.randomWithin(0.14, 0.21),
+                    parallaxVert: this.gameStarter.numberMaker.randomWithin(0.14, 0.21),
                     scale: this.gameStarter.numberMaker.randomWithin(0.35, 2.1),
                 });
 
@@ -44,7 +46,7 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
      *
      * @param star   Star to maintain.
      */
-    public maintainStar = (star: IScenery): void => {
+    public readonly maintainStar = (star: IScenery): void => {
         if (star.bottom < 0) {
             this.gameStarter.physics.setTop(star, this.gameStarter.mapScreener.bottom);
         } else if (star.top > this.gameStarter.mapScreener.bottom) {
@@ -52,8 +54,8 @@ export class Stars<TGameStartr extends StarCorn> extends GeneralComponent<TGameS
         }
 
         if (star.right < 0) {
-            this.gameStarter.physics.setLeft(star, this.gameStarter.mapScreener.right);
-        } else if (star.left > this.gameStarter.mapScreener.right) {
+            this.gameStarter.physics.setLeft(star, this.gameStarter.mapScreener.width);
+        } else if (star.left > this.gameStarter.mapScreener.width) {
             this.gameStarter.physics.setRight(star, 0);
         }
 

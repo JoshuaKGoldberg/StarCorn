@@ -1,8 +1,8 @@
 import { component } from "babyioc";
-import { GeneralComponent, IThing } from "gamestartr";
+import { GeneralComponent } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
-import { IPlanet, IPlayer, IScenery } from "./Things";
+import { IPlanet, IPlayer, IThing } from "./Things";
 
 /**
  * Starts a player flying through the sky.
@@ -20,6 +20,10 @@ export class Starting<TGameStartr extends StarCorn> extends GeneralComponent<TGa
                 speed: 7,
             });
 
-        this.gameStarter.things.add(player, 70, 140);
+        this.gameStarter.things.add(player);
+        this.gameStarter.physics.setLeft(player, 0);
+        this.gameStarter.physics.setMidY(player, this.gameStarter.mapScreener.height / 2);
+
+        this.gameStarter.planets.addPlanetAtEdge();
     }
 }

@@ -12,13 +12,11 @@ export const createGamesRunner = (game: StarCorn): GamesRunnr =>
         interval: 1000 / 60,
         games: [
             (): void => {
-                game.maintenance.maintainScenery(
-                    game.groupHolder.getGroup(game.things.names.scenery));
-            },
-            (): void => {
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.player));
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.scenery));
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.planet));
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.vegetable));
                 game.timeHandler.advance();
-            },
-            (): void => {
                 game.pixelDrawer.refillGlobalCanvas();
             },
         ],

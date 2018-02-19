@@ -1,11 +1,11 @@
-import { IThing } from "gamestartr";
 import { GroupHoldr } from "groupholdr";
 
-import { IPlanet, IScenery, IVegetable } from "../components/Things";
+import { IPlanet, IPlayer, IScenery, IThing, IVegetable } from "../components/Things";
 import { StarCorn } from "../StarCorn";
 
 export interface IGroups {
     Planet: IPlanet;
+    Player: IPlayer;
     Scenery: IScenery;
     Vegetable: IVegetable;
     [i: string]: IThing;
