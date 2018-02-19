@@ -15,10 +15,11 @@ export interface IPlanet extends IThing {
     gravity: number;
 }
 
-export type IScenery = IThing;
+export type ISparkle = IThing;
+export type IStar = IThing;
 
 export interface IPlayer extends IThing {
-    invertGravity:: boolean;
+    invertGravity: boolean;
     speed: number;
 }
 

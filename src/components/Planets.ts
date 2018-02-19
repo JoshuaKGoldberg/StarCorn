@@ -2,14 +2,16 @@ import { component } from "babyioc";
 import { GeneralComponent, IThing } from "gamestartr";
 
 import { StarCorn } from "../StarCorn";
-import { IPlanet, IScenery } from "./Things";
+import { IPlanet } from "./Things";
 
 /**
- * Places planets at random positions.
+ * Places Planets at random positions.
  */
 export class Planets<TGameStartr extends StarCorn> extends GeneralComponent<TGameStartr> {
     /**
+     * Adds a Planet at the right edge of the screen.
      *
+     * @returns Added planet.
      */
     public addPlanetAtEdge(): IPlanet {
         const planet = this.gameStarter.things.add(this.gameStarter.things.names.planet) as IPlanet;
@@ -28,6 +30,11 @@ export class Planets<TGameStartr extends StarCorn> extends GeneralComponent<TGam
         return planet;
     }
 
+    /**
+     * Regular Planet maintenance for creating a new planet at the edge of this one dies.
+     *
+     * @param thing   Planet to maintain.
+     */
     public readonly movement = (thing: IPlanet): void => {
         if (thing.right > -thing.width) {
             return;

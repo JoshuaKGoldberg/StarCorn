@@ -13,7 +13,8 @@ export const createGamesRunner = (game: StarCorn): GamesRunnr =>
         games: [
             (): void => {
                 game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.player));
-                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.scenery));
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.star));
+                game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.sparkle));
                 game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.planet));
                 game.maintenance.maintainGenericGroup(game.groupHolder.getGroup(game.things.names.vegetable));
                 game.timeHandler.advance();

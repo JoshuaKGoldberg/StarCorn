@@ -10,7 +10,7 @@ export class ThingNames<TGameStartr extends StarCorn> extends GeneralComponent<T
     public readonly planet = "Planet";
     public readonly player = "Player";
     public readonly quadrant = "Quadrant";
-    public readonly scenery = "Scenery";
+    public readonly sparkle = "Sparkle";
     public readonly star = "Star";
     public readonly thing = "Thing";
     public readonly vegetable = "Vegetable";

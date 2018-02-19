@@ -1,12 +1,13 @@
 import { GroupHoldr } from "groupholdr";
 
-import { IPlanet, IPlayer, IScenery, IThing, IVegetable } from "../components/Things";
+import { IPlanet, IPlayer, ISparkle, IStar, IThing, IVegetable } from "../components/Things";
 import { StarCorn } from "../StarCorn";
 
 export interface IGroups {
     Planet: IPlanet;
     Player: IPlayer;
-    Scenery: IScenery;
+    Sparkle: ISparkle;
+    Star: IStar;
     Vegetable: IVegetable;
     [i: string]: IThing;
 }
@@ -14,7 +15,8 @@ export interface IGroups {
 export const createGroupHolder = (game: StarCorn) =>
     new GroupHoldr<IGroups>({
         groupNames: [
-            game.things.names.scenery,
+            game.things.names.sparkle,
+            game.things.names.star,
             game.things.names.planet,
             game.things.names.vegetable,
             game.things.names.player,

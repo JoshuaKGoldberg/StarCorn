@@ -15,7 +15,8 @@ export const createPixelDrawer = (game: StarCorn) =>
         pixelRender: game.pixelRender,
         spriteCacheCutoff: 2048,
         thingArrays: [
-            game.groupHolder.getGroup(game.things.names.scenery),
+            game.groupHolder.getGroup(game.things.names.star),
+            game.groupHolder.getGroup(game.things.names.sparkle),
             game.groupHolder.getGroup(game.things.names.planet),
             game.groupHolder.getGroup(game.things.names.vegetable),
             game.groupHolder.getGroup(game.things.names.player),

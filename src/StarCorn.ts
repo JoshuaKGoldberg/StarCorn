@@ -13,6 +13,7 @@ import { Input } from "./components/Input";
 import { Maintenance } from "./components/Maintenance";
 import { Planets } from "./components/Planets";
 import { Player } from "./components/Player";
+import { Sparkles } from "./components/Sparkles";
 import { Stars } from "./components/Stars";
 import { Starting } from "./components/Starting";
 import { IPlanet, Things } from "./components/Things";
@@ -99,6 +100,12 @@ export class StarCorn extends GameStartr {
      */
     @component(Player)
     public readonly player: Player<this>;
+
+    /**
+     * Scatters sparkles around players.
+     */
+    @component(Sparkles)
+    public readonly sparkles: Sparkles<this>;
 
     /**
      * Scatters sparkling stars through the screen.

@@ -11,9 +11,8 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
             Area: {},
             Location: {},
             Thing: {
-                [game.things.names.scenery]: {
-                    [game.things.names.star]: {},
-                },
+                [game.things.names.sparkle]: {},
+                [game.things.names.star]: {},
                 [game.things.names.planet]: {},
                 [game.things.names.player]: {},
                 [game.things.names.vegetable]: {},
@@ -54,13 +53,18 @@ export const createObjectMaker = (game: StarCorn): ObjectMakr =>
                 // Triggered Functions
                 onMake: game.things.process.bind(game.things),
             },
-            // Scenery
-            [game.things.names.scenery]: {
-                groupType: game.things.names.scenery,
+            // Sparkles
+            [game.things.names.sparkle]: {
+                height: 1,
+                width: 1,
+                groupType: game.things.names.sparkle,
+                movement: game.sparkles.movement,
             },
+            // Stars
             [game.things.names.star]: {
                 height: 3,
                 width: 3,
+                groupType: game.things.names.star,
                 movement: game.stars.movement,
             },
             // Planets

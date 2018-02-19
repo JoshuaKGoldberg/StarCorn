@@ -31,6 +31,8 @@ export class Player<TGameStartr extends StarCorn> extends GeneralComponent<TGame
 
         if (thing.left < 0) {
             this.gameStarter.physics.shiftHoriz(thing, -thing.left);
+        } else if (thing.right > this.gameStarter.mapScreener.width) {
+            this.gameStarter.physics.shiftHoriz(thing, thing.right - this.gameStarter.mapScreener.width);
         }
 
         if (thing.top < 0) {
@@ -38,6 +40,8 @@ export class Player<TGameStartr extends StarCorn> extends GeneralComponent<TGame
         } else if (thing.bottom > this.gameStarter.mapScreener.height) {
             this.gameStarter.physics.shiftVert(thing, this.gameStarter.mapScreener.height - thing.bottom);
         }
+
+        this.gameStarter.sparkles.scatterSparklesAroundPlayer(thing);
     }
 
     private feelTheGravity(thing: IPlayer): void {
