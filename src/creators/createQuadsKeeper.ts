@@ -14,7 +14,7 @@ export const createQuadsKeeper = (game: StarCorn) => {
         quadrantHeight,
         numRows: 5,
         numCols: 6,
-        groupNames: [],
+        groupNames: ["Planet", "Player", "Vegetable"],
         startLeft: -quadrantWidth,
         startTop: -quadrantHeight,
         onAdd: (direction: string, top: number, right: number, bottom: number, left: number): void => {

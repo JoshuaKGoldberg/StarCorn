@@ -23,4 +23,17 @@ export class Maintenance<TGameStartr extends StarCorn> extends GeneralComponent<
             things[i].movement(things[i]);
         }
     }
+
+    public maintainGroupPhysics(things: IThing[]): void {
+        for (const thing of things) {
+            this.gameStarter.quadsKeeper.determineThingQuadrants(thing);
+        }
+    }
+
+    public maintainGroupPhysicsAndCollisions(things: IThing[]): void {
+        for (const thing of things) {
+            this.gameStarter.quadsKeeper.determineThingQuadrants(thing);
+            this.gameStarter.thingHitter.checkHitsForThing(thing);
+        }
+    }
 }

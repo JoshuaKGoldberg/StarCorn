@@ -17,7 +17,7 @@ export class Starting<TGameStartr extends StarCorn> extends GeneralComponent<TGa
         const player = this.gameStarter.objectMaker.make<IPlayer>(
             this.gameStarter.things.names.player,
             {
-                speed: 7,
+                speed: 5.6,
             });
 
         this.gameStarter.stars.scatterStars();

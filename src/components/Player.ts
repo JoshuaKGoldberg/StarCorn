@@ -30,15 +30,15 @@ export class Player<TGameStartr extends StarCorn> extends GeneralComponent<TGame
         this.feelTheGravity(thing);
 
         if (thing.left < 0) {
-            this.gameStarter.physics.shiftHoriz(thing, -thing.left);
+            this.gameStarter.physics.setLeft(thing, 0);
         } else if (thing.right > this.gameStarter.mapScreener.width) {
-            this.gameStarter.physics.shiftHoriz(thing, thing.right - this.gameStarter.mapScreener.width);
+            this.gameStarter.physics.setRight(thing, this.gameStarter.mapScreener.width);
         }
 
         if (thing.top < 0) {
-            this.gameStarter.physics.shiftVert(thing, -thing.top);
+            this.gameStarter.physics.setTop(thing, 0);
         } else if (thing.bottom > this.gameStarter.mapScreener.height) {
-            this.gameStarter.physics.shiftVert(thing, this.gameStarter.mapScreener.height - thing.bottom);
+            this.gameStarter.physics.setBottom(thing, this.gameStarter.mapScreener.height);
         }
 
         this.gameStarter.sparkles.scatterSparklesAroundPlayer(thing);

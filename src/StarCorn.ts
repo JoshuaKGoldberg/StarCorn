@@ -9,8 +9,11 @@ import { GamesRunnr } from "gamesrunnr";
 import { InputWritr } from "inputwritr";
 import { PixelRendr } from "pixelrendr";
 import { QuadsKeepr } from "quadskeepr";
+import { ThingHittr } from "thinghittr";
+import { Collisions } from "./components/Collisions";
 import { Input } from "./components/Input";
 import { Maintenance } from "./components/Maintenance";
+import { Physics } from "./components/Physics";
 import { Planets } from "./components/Planets";
 import { Player } from "./components/Player";
 import { Sparkles } from "./components/Sparkles";
@@ -25,6 +28,7 @@ import { createObjectMaker } from "./creators/createObjectMaker";
 import { createPixelDrawer } from "./creators/createPixelDrawer";
 import { createPixelRender } from "./creators/createPixelRender";
 import { createQuadsKeeper } from "./creators/createQuadsKeeper";
+import { createThingHitter } from "./creators/createThingHitter";
 
 /**
  * A free HTML5 remake of Nintendo's original Pokemon, expanded for the modern web.
@@ -78,6 +82,18 @@ export class StarCorn extends GameStartr {
     public readonly quadsKeeper: QuadsKeepr<IThing>;
 
     /**
+     * Automation for physics collisions and reactions.
+     */
+    @component(createThingHitter)
+    public readonly thingHitter: ThingHittr;
+
+    /**
+     * ThingHittr collision function generators.
+     */
+    @component(Collisions)
+    public readonly collisions: Collisions<this>;
+
+    /**
      * Receives input events.
      */
     @component(Input)
@@ -88,6 +104,12 @@ export class StarCorn extends GameStartr {
      */
     @component(Maintenance)
     public readonly maintenance: Maintenance<this>;
+
+    /**
+     * Physics functions to move Things around.
+     */
+    @component(Physics)
+    public readonly physics: Physics<this>;
 
     /**
      * Scatters sparkling stars through the screen.
