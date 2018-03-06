@@ -41,7 +41,7 @@
     "stylelint": "^9.1.1",
     "stylelint-config-recommended": "^v2.1.0",
     "stylelint-config-recommended-scss": "^3.1.0",
-    "stylelint-scss": "^2.4.0",
+    "stylelint-scss": "^2.5.0",
     "tslint": "5.9.1",
     "tsutils": "^2.22.1",
     "typedoc": "^0.10.0",
